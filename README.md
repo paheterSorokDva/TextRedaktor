@@ -1,0 +1,2 @@
+# TextRedaktor
+RedaktorTXT
