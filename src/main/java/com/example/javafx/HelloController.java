@@ -64,7 +64,7 @@ public class HelloController {
     protected void onAboutClick() {
 
         JFrame jFrame = new JFrame();
-        JOptionPane.showMessageDialog(jFrame, "paheterSorokDva");
+        JOptionPane.showMessageDialog(jFrame, "GitHub:paheterSorokDva");
 
     }
 
