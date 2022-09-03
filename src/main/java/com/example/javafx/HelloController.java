@@ -1,20 +1,16 @@
 package com.example.javafx;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
-import static javax.swing.JFileChooser.*;
+import static javafx.scene.control.Alert.AlertType.ERROR;
+import static javafx.scene.control.Alert.AlertType.INFORMATION;
 
 public class HelloController {
     @FXML
@@ -63,13 +59,18 @@ public class HelloController {
     @FXML
     protected void onAboutClick() {
 
-        JFrame jFrame = new JFrame();
-        JOptionPane.showMessageDialog(jFrame, "GitHub:paheterSorokDva");
+        //JFrame jFrame = new JFrame();
+        //JOptionPane.showMessageDialog(jFrame, "GitHub:paheterSorokDva");
+        Alert alert = new Alert(INFORMATION);
+        alert.setTitle("About me");
+        alert.setHeaderText("https://github.com/paheterSorokDva");
+        alert.setContentText("paheterSorokDva");
+        alert.showAndWait();
 
     }
 
     @FXML
-    protected void onBtnSaveFile(){
+    protected void onBtnSaveFileAs(){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Сохранение файла или фила");
         fileChooser.getExtensionFilters().addAll(
@@ -80,7 +81,7 @@ public class HelloController {
         //file = fileChooser.showSaveDialog(stage);
 
 
-        try(FileWriter writer = new FileWriter(fileChooser.showSaveDialog(stage), true))
+        try(FileWriter writer = new FileWriter((file = fileChooser.showSaveDialog(stage)), false))
         {
             writer.write(textInPole);
             writer.flush();
@@ -93,6 +94,35 @@ public class HelloController {
 
     }
 
+
+    @FXML
+    protected void onBtnSaveFile() {
+
+        String textInPole = textAreaPole.getText();
+        if(file == null) {
+
+            Alert alert = new Alert(ERROR);
+            alert.setHeaderText(null);
+            alert.setContentText("Не открыт или не выбран файл");
+            alert.showAndWait();
+
+            onBtnSaveFileAs();
+
+
+
+        }
+
+        try(FileWriter writer = new FileWriter(file, false))
+        {
+            writer.write(textInPole);
+            writer.flush();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+
+        }
+
+    }
 }
 
 
