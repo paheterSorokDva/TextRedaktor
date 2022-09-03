@@ -1,12 +1,24 @@
 package com.example.javafx;
 
+import javafx.application.HostServices;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.Scanner;
+
 
 import static javafx.scene.control.Alert.AlertType.ERROR;
 import static javafx.scene.control.Alert.AlertType.INFORMATION;
@@ -68,9 +80,32 @@ public class HelloController {
         //JOptionPane.showMessageDialog(jFrame, "GitHub:paheterSorokDva");
         Alert alert = new Alert(INFORMATION);
         alert.setTitle("About me");
-        alert.setHeaderText("https://github.com/paheterSorokDva");
-        alert.setContentText("paheterSorokDva");
+        alert.setHeaderText("Text Redaktor 0.1");
+
+
+
+        Hyperlink hyperlink = new Hyperlink("Text Redaktor (GitHub)");
+        hyperlink.setOnAction(e -> {
+            try {
+                URL home = new URL("https://github.com/paheterSorokDva/TextRedaktor");
+                Desktop.getDesktop().browse(home.toURI());
+            } catch (MalformedURLException ex) {
+                throw new RuntimeException(ex);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            } catch (URISyntaxException ex) {
+                throw new RuntimeException(ex);
+            }
+
+
+        });
+
+
+        alert.getDialogPane().setContent(hyperlink);
         alert.showAndWait();
+
+
+
 
     }
 
