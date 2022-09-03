@@ -43,7 +43,7 @@
           <items>
             <MenuItem mnemonicParsing="false" onAction="#onButtonClickNew" text="New" />
             <MenuItem mnemonicParsing="false" onAction="#onClickOpenFile" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
+            <Menu disable="true" mnemonicParsing="false" text="Open Recent" />
             <SeparatorMenuItem mnemonicParsing="false" />
             <MenuItem mnemonicParsing="false" onAction="#onBtnSaveFile" text="Save" />
             <SeparatorMenuItem mnemonicParsing="false" />
