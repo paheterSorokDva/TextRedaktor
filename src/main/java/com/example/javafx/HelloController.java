@@ -7,7 +7,6 @@ import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.Scanner;
-import javax.swing.*;
 
 import static javafx.scene.control.Alert.AlertType.ERROR;
 import static javafx.scene.control.Alert.AlertType.INFORMATION;
@@ -24,8 +23,11 @@ public class HelloController {
     private TextArea textAreaPole;
     @FXML
     private MenuItem btnNew;
+    @FXML
+    private Menu nameFile;
 
     File file;
+
 
     @FXML
     protected void onButtonClickNew() {
@@ -54,6 +56,9 @@ public class HelloController {
         }
         while (obj.hasNextLine())
             textAreaPole.setText(obj.nextLine());                   // записываем считаное в поле
+
+        //tab1.setText(file.getName());
+        nameFile.setText(file.getName());
     }
 
     @FXML
@@ -90,7 +95,7 @@ public class HelloController {
             throw new RuntimeException(e);
 
         }
-
+        nameFile.setText(file.getName());
 
     }
 
@@ -121,6 +126,7 @@ public class HelloController {
             throw new RuntimeException(e);
 
         }
+        nameFile.setText(file.getName());
 
     }
 }

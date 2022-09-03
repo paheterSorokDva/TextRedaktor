@@ -76,6 +76,7 @@
             <MenuItem mnemonicParsing="false" onAction="#onAboutClick" text="About MyHelloApp" />
           </items>
         </Menu>
+            <Menu fx:id="nameFile" mnemonicParsing="false" text="Name File*" />
       </menus>
     </MenuBar>
       <TextArea fx:id="textAreaPole" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
