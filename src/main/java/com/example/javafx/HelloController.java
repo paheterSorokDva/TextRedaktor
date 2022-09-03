@@ -8,13 +8,13 @@ import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
 import java.util.Scanner;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+import static javax.swing.JFileChooser.*;
 
 public class HelloController {
     @FXML
@@ -44,7 +44,7 @@ public class HelloController {
         FileChooser FileChooser = new FileChooser();                            // FileChooser диалоговое окно выбора файла
         FileChooser.setTitle("Открыть файл ресурсов");
         FileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("txt", "*.txt")
+                new FileChooser.ExtensionFilter(".txt", "*.txt")
 
         );
 
@@ -65,6 +65,31 @@ public class HelloController {
 
         JFrame jFrame = new JFrame();
         JOptionPane.showMessageDialog(jFrame, "GitHub:paheterSorokDva");
+
+    }
+
+    @FXML
+    protected void onBtnSaveFile(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Сохранение файла или фила");
+        fileChooser.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter(".txt", "*.txt")
+
+        );
+        String textInPole = textAreaPole.getText();
+        //file = fileChooser.showSaveDialog(stage);
+
+
+        try(FileWriter writer = new FileWriter(fileChooser.showSaveDialog(stage), true))
+        {
+            writer.write(textInPole);
+            writer.flush();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+
+        }
+
 
     }
 
