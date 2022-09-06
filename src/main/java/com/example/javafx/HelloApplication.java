@@ -18,8 +18,8 @@ public class HelloApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), stage.getMaxWidth(), stage.getMaxHeight());
 
-        Image image = new Image("C:\\Users\\Илья\\IdeaProjects\\javafx\\src\\main\\resources\\icons\\iconMain.png"); /// C:\Users\***\IdeaProjects\javafx\src\main\resources\icons\iconMain.png
-        stage.getIcons().add(image);
+       // Image image = new Image("C:\\Users\\Илья\\IdeaProjects\\javafx\\src\\main\\resources\\icons\\iconMain.png"); /// C:\Users\***\IdeaProjects\javafx\src\main\resources\icons\iconMain.png
+      //  stage.getIcons().add(image);
 
         stage.setTitle("Текстовой редактор");
         stage.setScene(scene);

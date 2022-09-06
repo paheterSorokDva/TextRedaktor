@@ -69,15 +69,15 @@ public class HelloController {
         while (obj.hasNextLine())
             textAreaPole.setText(obj.nextLine());                   // записываем считаное в поле
 
-        //tab1.setText(file.getName());
+        //tab1.setText(file.getName());                             // мои грязные фантазии
         nameFile.setText(file.getName());
     }
 
     @FXML
     protected void onAboutClick() {
 
-        //JFrame jFrame = new JFrame();
-        //JOptionPane.showMessageDialog(jFrame, "GitHub:paheterSorokDva");
+        //JFrame jFrame = new JFrame();                                     // мои грязные фантазии
+        //JOptionPane.showMessageDialog(jFrame, "GitHub:paheterSorokDva");  // мои грязные фантазии
         Alert alert = new Alert(INFORMATION);
         alert.setTitle("About me");
         alert.setHeaderText("Text Redaktor 0.1");
